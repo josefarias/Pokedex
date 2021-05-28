@@ -1,18 +1,27 @@
 import React from 'react'
 import { Image, ImageSourcePropType, Pressable, StyleSheet, Text } from 'react-native'
 import { Colors } from 'utils/Colors'
+import { useNavigation } from '@react-navigation/core'
 
 interface IMenuCard {
   backgroundColor: string
+  destination: string
   icon: ImageSourcePropType
   title: string
 }
 
 export const MenuCard: React.FC<IMenuCard> = (props) => {
+  const navigation = useNavigation();
+
+  function navigate(): void {
+    navigation.navigate(props.destination)
+  }
+
   return (
-    <Pressable style={{...styles.card, backgroundColor: props.backgroundColor}}>
+    <Pressable style={{...styles.card, backgroundColor: props.backgroundColor}}
+               onPress={navigate}>
         <Text style={styles.title}>{props.title}</Text>
-        <Image source={props.icon} style={styles.icon}/>
+        <Image source={props.icon} style={styles.icon} />
     </Pressable>
   )
 }

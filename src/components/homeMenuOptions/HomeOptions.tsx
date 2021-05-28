@@ -10,10 +10,12 @@ export const HomeMenuOptions: React.FC = () => {
     <>
       <MenuCard title="All Pokémon"
                 backgroundColor={ Colors.fire }
-                icon={ pokemonIcon } />
+                icon={ pokemonIcon }
+                destination="Pokémon List" />
       <MenuCard title="My Team"
                 backgroundColor={ Colors.water }
-                icon={ pokeballIcon } />
+                icon={ pokeballIcon }
+                destination="My Team" />
     </>
   )
 }

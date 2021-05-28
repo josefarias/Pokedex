@@ -1,25 +1,23 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { HomeMenuOptions } from 'components/homeMenuOptions/HomeOptions'
+import { Colors } from 'utils/Colors'
 
 export const Home: React.FC = () => {
   return(
-    <View style={styles.container}>
+    <SafeAreaView>
       <Text style={styles.heading}>What would you like to see?</Text>
       <HomeMenuOptions />
-    </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
   heading: {
-    color: 'white',
+    color: Colors.white,
     fontWeight: 'bold',
     fontSize: 40,
-    padding: 20,
-    marginBottom: 20
+    padding: 24,
+    marginBottom: 24
   }
 })
