@@ -4,7 +4,7 @@ import { Colors } from 'utils/Colors'
 
 export const HomeMenuOptions: React.FC = () => {
   const pokeballIcon = require('./assets/pokeball.png')
-  const pokemonIcon = require('./assets/pokemon.png')
+  const pokemonIcon  = require('./assets/pokemon.png')
 
   return (
     <>

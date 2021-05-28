@@ -8,8 +8,10 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { StatusBar } from 'react-native'
 import { Colors } from 'utils/Colors'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const Stack = createStackNavigator()
+const queryClient = new QueryClient()
 
 const AppTheme = {
   ...DefaultTheme,
@@ -25,17 +27,19 @@ const AppTheme = {
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle="light-content" />
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <StatusBar barStyle="light-content" />
 
-      <NavigationContainer theme={AppTheme}>
-        <Stack.Navigator>
-          <Stack.Screen name='Home' component={Home} options={{headerShown: false}} />
-          <Stack.Screen name='My Team' component={MyTeam} options={{title: ''}} />
-          <Stack.Screen name='Pokémon List' component={PokemonList} options={{title: ''}} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+        <NavigationContainer theme={AppTheme}>
+          <Stack.Navigator>
+            <Stack.Screen name='Home' component={Home} options={{headerShown: false}} />
+            <Stack.Screen name='My Team' component={MyTeam} options={{title: ''}} />
+            <Stack.Screen name='Pokémon List' component={PokemonList} options={{title: ''}} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   )
 }
 

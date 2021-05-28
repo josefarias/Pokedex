@@ -1,15 +1,11 @@
 import React from 'react'
-import { ActivityIndicator, StyleSheet } from 'react-native'
-import { Colors } from 'utils/Colors'
+import { PokemonIndex } from '@components/pokemonIndex/PokemonIndex'
+import { SafeAreaView } from 'react-native'
 
 export const PokemonList: React.FC = () => {
   return (
-    <ActivityIndicator size="large" color={Colors.white} style={styles.activityIndicator} />
+    <SafeAreaView>
+      <PokemonIndex />
+    </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  activityIndicator: {
-    marginTop: 56
-  }
-})

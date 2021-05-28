@@ -1,4 +1,10 @@
-export const Colors = {
+const InterfaceFriendlyColors = ['water', 'fire', 'electric', 'grass']
+
+interface IColor {
+  [name: string]: string
+}
+
+export const Colors: IColor = {
   white: '#FFFFFF',
   gray: '#838D98',
   charcoal: 'rgb(36,36,36)',
@@ -19,5 +25,10 @@ export const Colors = {
   psychic: '#E888B6',
   rock: '#95673C',
   steel: '#8CB19B',
-  water: 'rgb(65, 159, 237)',
+  water: 'rgb(65, 159, 237)'
+}
+
+export function randomInterfaceColor(): string {
+  const colors = Object.keys(Colors).filter(color => InterfaceFriendlyColors.includes(color))
+  return Colors[colors[colors.length * Math.random() << 0]]
 }

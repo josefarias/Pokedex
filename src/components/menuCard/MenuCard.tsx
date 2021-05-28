@@ -12,13 +12,14 @@ interface IMenuCard {
 
 export const MenuCard: React.FC<IMenuCard> = (props) => {
   const navigation = useNavigation();
+  const cardStyle  = {...styles.card, backgroundColor: props.backgroundColor}
 
   function navigate(): void {
     navigation.navigate(props.destination)
   }
 
   return (
-    <Pressable style={{...styles.card, backgroundColor: props.backgroundColor}}
+    <Pressable style={cardStyle}
                onPress={navigate}>
         <Text style={styles.title}>{props.title}</Text>
         <Image source={props.icon} style={styles.icon} />
