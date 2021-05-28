@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuCard } from '@components/menuCard/MenuCard'
+import { MenuCard } from '@components/home/menuCard/MenuCard'
 import { Colors } from 'utils/Colors'
 
 export const HomeMenuOptions: React.FC = () => {

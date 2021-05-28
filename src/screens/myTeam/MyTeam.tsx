@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
-import { BlankSlate } from '@components/blankSlate/BlankSlate'
+import { BlankSlate } from '@components/shared/blankSlate/BlankSlate'
 
 export const MyTeam: React.FC = () => {
   const pokeballIcon = require('./assets/pokeball.png')

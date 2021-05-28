@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text } from 'react-native'
-import { HomeMenuOptions } from 'components/homeMenuOptions/HomeOptions'
+import { HomeMenuOptions } from '@components/home/homeMenuOptions/HomeOptions'
 import { Colors } from 'utils/Colors'
 
 export const Home: React.FC = () => {
