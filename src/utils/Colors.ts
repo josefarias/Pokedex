@@ -1,4 +1,4 @@
-const interfaceFriendlyColors = ['water', 'fire', 'electric', 'grass', 'ice', 'fairy', 'dragon', 'ground']
+const interfaceFriendlyColors = ['water', 'grass', 'electric', 'fire', 'fairy']
 
 interface IColor {
   [name: string]: string
