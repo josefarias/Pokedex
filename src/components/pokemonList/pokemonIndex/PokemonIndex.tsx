@@ -13,14 +13,14 @@ import axios from 'axios'
 export const PokemonIndex: React.FC = () => {
   const getMorePokemon  = () => fetchNextPage()
   const paginationLimit = 60
-  const currentPage     = useRef<number>(1)
+  const currentPage     = useRef<number>(0)
   const { isLoading, isError, data, fetchNextPage } =
     useInfiniteQuery('pokemonIndex', fetchPokemonIndex, {
       onSuccess: () => currentPage.current += 1,
       getNextPageParam: (lastPage, _allPages) => {
         if (!lastPage.data.next) return undefined
 
-        return paginationLimit * (currentPage.current - 1)
+        return paginationLimit * currentPage.current
       }
     })
 
