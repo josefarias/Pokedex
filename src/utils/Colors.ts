@@ -1,4 +1,4 @@
-const InterfaceFriendlyColors = ['water', 'fire', 'electric', 'grass']
+const interfaceFriendlyColors = ['water', 'fire', 'electric', 'grass', 'ice', 'fairy', 'dragon', 'ground']
 
 interface IColor {
   [name: string]: string
@@ -28,7 +28,12 @@ export const Colors: IColor = {
   water: 'rgb(65, 159, 237)'
 }
 
-export function randomInterfaceColor(): string {
-  const colors = Object.keys(Colors).filter(color => InterfaceFriendlyColors.includes(color))
-  return Colors[colors[colors.length * Math.random() << 0]]
+export function deterministicInterfaceColor(index: number): string {
+  const hashedIndex = hashedIndexForInterfaceColor(index)
+  const color = interfaceFriendlyColors[hashedIndex % interfaceFriendlyColors.length]
+  return Colors[color]
+}
+
+function hashedIndexForInterfaceColor(index: number): number {
+  return require("hash-int")(index)
 }

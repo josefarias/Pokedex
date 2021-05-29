@@ -1,17 +1,16 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Image, Pressable, StyleSheet, Text } from 'react-native'
-import { Colors, randomInterfaceColor } from 'utils/Colors'
+import { Colors } from 'utils/Colors'
 import { PokemonCard } from 'facades/PokemonCard.facade'
 
 interface IPokemonListItem {
   card: PokemonCard
 }
 
-export const PokemonListItem: React.FC<IPokemonListItem> = (props) => {
+function PokemonListItem(props: IPokemonListItem) {
+  const card      = () => props.card
   const icon      = require('./assets/pokeball.png')
-  const cardStyle = {...styles.card, backgroundColor: randomInterfaceColor()}
-
-  const card = () => props.card
+  const cardStyle = { ...styles.card, backgroundColor: card().background }
 
   return (
     <Pressable style={cardStyle}>
@@ -63,3 +62,5 @@ const styles = StyleSheet.create({
     bottom: 8
   }
 })
+
+export const MemoizedPokemonListItem = memo(PokemonListItem)

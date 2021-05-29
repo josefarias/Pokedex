@@ -12,7 +12,7 @@ interface IMenuCard {
 
 export const MenuCard: React.FC<IMenuCard> = (props) => {
   const navigation = useNavigation();
-  const cardStyle  = {...styles.card, backgroundColor: props.backgroundColor}
+  const cardStyle  = { ...styles.card, backgroundColor: props.backgroundColor }
 
   function navigate(): void {
     navigation.navigate(props.destination)

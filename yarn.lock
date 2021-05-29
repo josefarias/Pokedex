@@ -3245,6 +3245,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+hash-int@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hash-int/-/hash-int-1.0.0.tgz#28cae10f5a651ed65d5680ccc0d08005cf372a0d"
+  integrity sha1-KMrhD1plHtZdVoDMwNCABc83Kg0=
+
 hermes-engine@~0.7.0:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/hermes-engine/-/hermes-engine-0.7.2.tgz#303cd99d23f68e708b223aec2d49d5872985388b"
