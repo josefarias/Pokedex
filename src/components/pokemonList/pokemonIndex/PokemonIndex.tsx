@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { MemoizedPokemonListItem } from '@components/pokemonList/pokemonListItem/PokemonListItem'
 import { Spinner } from '@components/shared/spinner/Spinner'
 import { ServerCommunicationError } from '@components/shared/serverCommunicationError/ServerCommunicationError'
 import { Pokemon, IPokemon } from 'models/Pokemon.model'
 import { StyleSheet, Text, View } from 'react-native'
-import { useInfiniteQuery } from 'react-query'
+import { useInfiniteQuery, useQueryClient } from 'react-query'
 import { Colors } from 'utils/Colors'
 import { FlatList } from 'react-native-gesture-handler'
 import { PokemonCard } from 'facades/PokemonCard.facade'
@@ -12,10 +12,14 @@ import axios from 'axios'
 
 export const PokemonIndex: React.FC = () => {
   const getMorePokemon  = () => fetchNextPage()
+  const queryClient     = useQueryClient()
   const paginationLimit = 60
   const currentPage     = useRef<number>(0)
   const { isLoading, isError, data, fetchNextPage } =
     useInfiniteQuery('pokemonIndex', fetchPokemonIndex, {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
       onSuccess: () => currentPage.current += 1,
       getNextPageParam: (lastPage, _allPages) => {
         if (!lastPage.data.next) return undefined
@@ -24,10 +28,20 @@ export const PokemonIndex: React.FC = () => {
       }
     })
 
+  // NOTE: This stops react-query from re-appending the first page
+  //  when comming back to this component after initial fetch.
+  useEffect(() => {
+    async function resetQueries() {
+      await queryClient.resetQueries('pokemonIndex', { exact: true })
+    }
+
+    resetQueries()
+  }, [queryClient])
+
   function buildPokemonData(): Array<Pokemon> {
     if (!data?.pages.length) return []
 
-    const results = data.pages.map((page) => page.data.results).flat()
+    const results = data.pages.map(page => page.data.results).flat()
 
     return results.map((serverPokemon: IPokemon) => new Pokemon(serverPokemon))
   }
@@ -38,7 +52,7 @@ export const PokemonIndex: React.FC = () => {
     return axios.get('https://pokeapi.co/api/v2/pokemon', { params })
   }
 
-  function pokemonRenderItem({ item }: { item: Pokemon }){
+  function pokemonRenderItem({ item }: { item: Pokemon }) {
     return <MemoizedPokemonListItem card={new PokemonCard(item)} />
   }
 
