@@ -1,3 +1,4 @@
+import { API_ENDPOINTS } from 'api/endpoints'
 import { Pokemon } from 'models/Pokemon.model'
 import { deterministicInterfaceColor } from 'utils/Colors'
 
@@ -6,6 +7,10 @@ export class PokemonCard {
 
   constructor(pokemon: Pokemon) {
     this.pokemon = pokemon
+  }
+
+  get id(): number {
+    return this.pokemon.id
   }
 
   // NOTE: Background colors don't mean anything. If I had more time,
@@ -20,7 +25,7 @@ export class PokemonCard {
   }
 
   get imageUrl(): string {
-    return `https://pokeres.bastionbot.org/images/pokemon/${this.pokemon.id}.png`
+    return `${API_ENDPOINTS.mediaApi}/images/pokemon/${this.pokemon.id}.png`
   }
 
   get pokemonName(): string {
