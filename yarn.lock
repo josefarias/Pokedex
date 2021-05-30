@@ -1286,6 +1286,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
+"@types/react-native@^0.63.27":
+  version "0.63.52"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.52.tgz#449beb4a413ec0f2c172cbf676a95f5b0952adf4"
+  integrity sha512-sBXvvtJaIUSXQLDh9NZitx1KHkKUdBLZy34lFKJaIXtpHIh5OEbBXeyUTFBtFwjk/RD0tneAtUqsdhheZRzAzw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@^0.64.5":
   version "0.64.6"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.64.6.tgz#a3227badd99a1ba883be4b0a62af8ccf0fc08543"
@@ -5763,6 +5770,15 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
+rn-segmented-control@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/rn-segmented-control/-/rn-segmented-control-0.2.8.tgz#dbf0b17d387248b947a76de9f4dc2f012b7534e0"
+  integrity sha512-aufQcuDfdGgG2Os7wbqBTzr4OcBv7fsM02rO31HCa/XC0W4xRfxR9XyiBPRkZLhO35+Br5Y9/Oln2YT/dYCw6A==
+  dependencies:
+    "@types/react-native" "^0.63.27"
+    prop-types "^15.7.2"
+    typescript next
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
@@ -6495,6 +6511,11 @@ typescript@^3.8.3:
   version "3.9.9"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
   integrity sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==
+
+typescript@next:
+  version "4.4.0-dev.20210530"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.0-dev.20210530.tgz#76e339bd974a7c5db18015feaec9309b6b6e2326"
+  integrity sha512-8kxsd6Uo8YcrX3yq2n9ltMdJomJD8oLH03UGCIQwIvG0TTGwqFfZf/c5II7c03C4Rfuegg6ld268mXEjF5f2nw==
 
 ua-parser-js@^0.7.18:
   version "0.7.28"

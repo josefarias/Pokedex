@@ -1,6 +1,5 @@
 import { API_ENDPOINTS } from "api/endpoints";
 import { Pokemon } from "models/Pokemon.model";
-import { Colors } from "utils/Colors";
 
 export class PokemonProfile {
   pokemon: Pokemon
@@ -10,9 +9,7 @@ export class PokemonProfile {
   }
 
   get background(): string {
-    if (!this.pokemon.types.length) return Colors.charcoal
-
-    return Colors[this.pokemon.types[0].name]
+    return this.pokemon.color
   }
 
   get formattedNumber(): string {

@@ -3,6 +3,7 @@ import { API_ENDPOINTS } from 'api/endpoints'
 import axios, { AxiosResponse } from 'axios'
 import { ServerCommunicationError } from 'components/shared/serverCommunicationError/ServerCommunicationError'
 import { Spinner } from 'components/shared/spinner/Spinner'
+import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
 import { PokemonProfile } from 'facades/PokemonProfile.facade'
 import { EmptyPokemon, IPokemon, Pokemon } from 'models/Pokemon.model'
 import React, { useLayoutEffect, useRef } from 'react'
@@ -17,7 +18,9 @@ export const PokemonShow: React.FC = () => {
   const route          = useRoute<RouteProp<RootStackParamList, 'Pokemon'>>()
   const navigation     = useNavigation()
   const pokemonProfile = useRef<PokemonProfile>(new PokemonProfile(EmptyPokemon))
+  const infoDrawer     = useRef<PokemonInfoDrawer>(new PokemonInfoDrawer(EmptyPokemon))
   const profile        = () => pokemonProfile.current
+  const drawer         = () => infoDrawer.current
   const { id }         = route.params
   const { isLoading, isError } =
     useQuery(`pokemonShow${id}`, fetchPokemon, {
@@ -38,7 +41,9 @@ export const PokemonShow: React.FC = () => {
   }
 
   function persistPokemon(data: AxiosResponse<IPokemon>) {
-    pokemonProfile.current = new PokemonProfile(new Pokemon(data.data))
+    const pokemon = new Pokemon(data.data)
+    pokemonProfile.current = new PokemonProfile(pokemon)
+    infoDrawer.current = new PokemonInfoDrawer(pokemon)
   }
 
   if (isLoading) return <Spinner />
@@ -46,9 +51,11 @@ export const PokemonShow: React.FC = () => {
 
   return (
     <View style={{...styles.container, backgroundColor: profile().background}}>
-      <PokemonHeader name={profile().pokemonName} formattedNumber={profile().formattedNumber} style={styles.header} />
+      <PokemonHeader name={profile().pokemonName}
+                     formattedNumber={profile().formattedNumber}
+                     style={styles.header} />
       <PokemonAvatar style={styles.avatar} imageUrl={profile().imageUrl} />
-      <InfoDrawer />
+      <InfoDrawer drawer={drawer()} />
     </View>
   )
 }

@@ -10,7 +10,7 @@ export interface IPokemonType {
 export class PokemonType {
   name: string
 
-  constructor(attrs: IPokemonType) {
-    this.name = attrs.name
+  constructor(attrs: IServerPokemonType) {
+    this.name = attrs.type.name
   }
 }

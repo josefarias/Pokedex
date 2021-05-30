@@ -6,6 +6,7 @@ interface IColor {
 
 export const Colors: IColor = {
   white: '#FFFFFF',
+  black: '#000000',
   gray: '#838D98',
   charcoal: 'rgb(36,36,36)',
   bug: '#62A571',
