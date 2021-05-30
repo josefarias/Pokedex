@@ -3,21 +3,21 @@ import SegmentedControl from 'rn-segmented-control'
 import { StyleSheet, View } from 'react-native'
 import { Colors } from 'utils/Colors'
 import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
-import { StatsInfo } from './components/StatsInfo'
+import { StatsInfo } from './components/statsInfo/StatsInfo'
 
 interface IInfoDrawer {
   drawer: PokemonInfoDrawer
 }
 
 export const InfoDrawer: React.FC<IInfoDrawer> = ({drawer}) => {
-  const tabTitles               = ['Stats', 'Abilities', 'Moves']
+  const tabTitles               = ['Stats', 'Types', 'Moves']
   const [tabIndex, setTabIndex] = useState(0)
 
   function componentFor(tabTitle: string) {
     switch(tabTitle) {
       case 'Stats':
         return <StatsInfo stats={drawer.stats} color={drawer.color} />
-      case 'Abilities':
+      case 'Types':
       case 'Moves':
       default:
         return <StatsInfo stats={drawer.stats} color={drawer.color} />
