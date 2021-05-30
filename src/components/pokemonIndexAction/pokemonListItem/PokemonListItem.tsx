@@ -2,18 +2,25 @@ import React, { memo } from 'react'
 import { Image, Pressable, StyleSheet, Text } from 'react-native'
 import { Colors } from 'utils/Colors'
 import { PokemonCard } from 'facades/PokemonCard.facade'
+import { useNavigation } from '@react-navigation/core'
 
 interface IPokemonListItem {
   card: PokemonCard
 }
 
 function PokemonListItem(props: IPokemonListItem) {
-  const card      = () => props.card
-  const icon      = require('./assets/pokeball.png')
-  const cardStyle = { ...styles.card, backgroundColor: card().background }
+  const card       = () => props.card
+  const navigation = useNavigation()
+  const icon       = require('./assets/pokeball.png')
+  const cardStyle  = { ...styles.card, backgroundColor: card().background }
+
+  function navigate(): void {
+    navigation.navigate('Pokemon', { id: card().id })
+  }
 
   return (
-    <Pressable style={cardStyle}>
+    <Pressable style={cardStyle}
+               onPress={navigate} >
       <Text style={styles.number}>{card().formattedNumber}</Text>
       <Text style={styles.name}>{card().pokemonName}</Text>
       <Image source={icon} style={styles.icon} />

@@ -11,7 +11,7 @@ export const HomeMenuOptions: React.FC = () => {
       <MenuCard title="All Pokémon"
                 backgroundColor={ Colors.fire }
                 icon={ pokemonIcon }
-                destination="Pokémon List" />
+                destination="Pokemon List" />
       <MenuCard title="My Team"
                 backgroundColor={ Colors.water }
                 icon={ pokeballIcon }

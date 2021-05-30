@@ -1,8 +1,8 @@
 import React from 'react'
-import { PokemonIndex } from '@components/pokemonList/pokemonIndex/PokemonIndex'
+import { PokemonIndex } from 'components/pokemonIndexAction/pokemonIndex/PokemonIndex'
 import { SafeAreaView } from 'react-native'
 
-export const PokemonList: React.FC = () => {
+export const PokemonIndexAction: React.FC = () => {
   return (
     <SafeAreaView>
       <PokemonIndex />

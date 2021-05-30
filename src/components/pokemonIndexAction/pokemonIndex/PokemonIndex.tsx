@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { MemoizedPokemonListItem } from '@components/pokemonList/pokemonListItem/PokemonListItem'
+import { MemoizedPokemonListItem } from 'components/pokemonIndexAction/pokemonListItem/PokemonListItem'
 import { Spinner } from '@components/shared/spinner/Spinner'
 import { ServerCommunicationError } from '@components/shared/serverCommunicationError/ServerCommunicationError'
 import { Pokemon, IPokemon } from 'models/Pokemon.model'
@@ -8,6 +8,7 @@ import { useInfiniteQuery, useQueryClient } from 'react-query'
 import { Colors } from 'utils/Colors'
 import { FlatList } from 'react-native-gesture-handler'
 import { PokemonCard } from 'facades/PokemonCard.facade'
+import { API_ENDPOINTS } from 'api/endpoints'
 import axios from 'axios'
 
 export const PokemonIndex: React.FC = () => {
@@ -49,7 +50,7 @@ export const PokemonIndex: React.FC = () => {
   function fetchPokemonIndex({ pageParam = 0 }) {
     const params = { limit: paginationLimit, offset: pageParam }
 
-    return axios.get('https://pokeapi.co/api/v2/pokemon', { params })
+    return axios.get(`${API_ENDPOINTS.contentApi}/pokemon`, { params })
   }
 
   function pokemonRenderItem({ item }: { item: Pokemon }) {
