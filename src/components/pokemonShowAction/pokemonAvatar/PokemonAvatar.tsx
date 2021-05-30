@@ -7,12 +7,13 @@ interface IPokemonAvatar {
 }
 
 export const PokemonAvatar: React.FC<IPokemonAvatar> = (props) => {
+  const { style, imageUrl } = props
   const icon = require('./assets/pokeball.png')
 
   return (
-    <View style={{...styles.container, ...props.style}}>
+    <View style={{...styles.container, ...style}}>
       <Image source={icon} />
-      <Image source={{uri: props.imageUrl}}
+      <Image source={{uri: imageUrl}}
              style={styles.pokemon} />
     </View>
   )

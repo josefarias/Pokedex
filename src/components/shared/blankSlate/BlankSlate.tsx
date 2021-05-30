@@ -9,11 +9,13 @@ interface IBlankSlate {
 }
 
 export const BlankSlate: React.FC<IBlankSlate> = (props) => {
+  const { icon, title, description } = props
+
   return (
     <View style={styles.container}>
-      <Image source={props.icon} style={styles.icon}/>
-      <Text style={styles.title}>{props.title}</Text>
-      <Text style={styles.description}>{props.description}</Text>
+      <Image source={icon} style={styles.icon}/>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.description}>{description}</Text>
     </View>
   )
 }

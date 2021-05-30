@@ -9,10 +9,12 @@ interface IPokemonHeader {
 }
 
 export const PokemonHeader: React.FC<IPokemonHeader> = (props) => {
+  const { style, name, formattedNumber } = props
+
   return (
-    <View style={{...styles.container, ...props.style}}>
-      <Text style={styles.name}>{props.name}</Text>
-      <Text style={styles.number}>{props.formattedNumber}</Text>
+    <View style={{...styles.container, ...style}}>
+      <Text style={styles.name}>{name}</Text>
+      <Text style={styles.number}>{formattedNumber}</Text>
     </View>
   )
 }

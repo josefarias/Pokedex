@@ -8,23 +8,22 @@ interface IPokemonListItem {
   card: PokemonCard
 }
 
-function PokemonListItem(props: IPokemonListItem) {
-  const card       = () => props.card
+function PokemonListItem({card}: IPokemonListItem) {
   const navigation = useNavigation()
   const icon       = require('./assets/pokeball.png')
-  const cardStyle  = { ...styles.card, backgroundColor: card().background }
+  const cardStyle  = { ...styles.card, backgroundColor: card.background }
 
   function navigate(): void {
-    navigation.navigate('Pokemon', { id: card().id })
+    navigation.navigate('Pokemon', { id: card.id })
   }
 
   return (
     <Pressable style={cardStyle}
                onPress={navigate} >
-      <Text style={styles.number}>{card().formattedNumber}</Text>
-      <Text style={styles.name}>{card().pokemonName}</Text>
+      <Text style={styles.number}>{card.formattedNumber}</Text>
+      <Text style={styles.name}>{card.pokemonName}</Text>
       <Image source={icon} style={styles.icon} />
-      <Image source={{uri: card().imageUrl}}
+      <Image source={{uri: card.imageUrl}}
              style={styles.pokemon} />
     </Pressable>
   )
