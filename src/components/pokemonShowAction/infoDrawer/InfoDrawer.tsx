@@ -5,6 +5,7 @@ import { Colors } from 'utils/Colors'
 import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
 import { StatsInfo } from './components/statsInfo/StatsInfo'
 import { TypesInfo } from './components/typesInfo/TypesInfo'
+import { MovesInfo } from './components/movesInfo/MovesInfo'
 
 interface IInfoDrawer {
   drawer: PokemonInfoDrawer
@@ -21,6 +22,7 @@ export const InfoDrawer: React.FC<IInfoDrawer> = ({drawer}) => {
       case 'Types':
         return <TypesInfo types={drawer.types} />
       case 'Moves':
+        return <MovesInfo moves={drawer.moves} />
       default:
         return <StatsInfo stats={drawer.stats} color={drawer.color} />
     }

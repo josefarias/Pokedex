@@ -16,7 +16,7 @@ export function getIdFromUrl(url: string = ""): number {
 //  }
 //  `.extractFromNestedResource` can be used to obtain `actual_resource` attrs when needed.
 export function extractFromNestedResource(attrs: any, resourceName: string, attrName: string) {
-  if (!attrs[resourceName]) return
+  if (!attrs || !attrs[resourceName]) return
 
   return attrs[resourceName][attrName]
 }

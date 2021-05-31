@@ -64,7 +64,7 @@ export const PokemonIndex: React.FC = () => {
     <View>
       <FlatList data={buildPokemonData()}
                 renderItem={pokemonRenderItem}
-                keyExtractor={item => item.id}
+                keyExtractor={item => item.id.toString()}
                 onEndReached={getMorePokemon}
                 ListHeaderComponent={
                   <Text style={styles.heading}>

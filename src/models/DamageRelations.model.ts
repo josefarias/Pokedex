@@ -34,7 +34,7 @@ export class DamageRelations {
   }
 }
 
-const defaultValues: IServerDamageRelations = {
+export const defaultValues: IServerDamageRelations = {
   no_damage_to: [],
   half_damage_to: [],
   double_damage_to: [],
@@ -51,3 +51,5 @@ export const DAMAGE_RELATION_TITLE_MAPPINGS = {
   halfDamagefrom: 'Half Damage From',
   doubleDamagefrom: 'Double Damage From'
 }
+
+export const EMPTY_DAMAGE_RELATIONS = new DamageRelations(defaultValues)

@@ -9,8 +9,10 @@ interface ITypesInfo {
 
 export const TypesInfo: React.FC<ITypesInfo> = ({types}) => {
   function typeRenderItem({ item }: { item: PokemonType }) {
-    return <MemoizedTypeCard key={item.id} pokemonTypeId={item.id} />
+    return <MemoizedTypeCard pokemonTypeId={item.id} />
   }
 
-  return <FlatList data={types} renderItem={typeRenderItem} />
+  return <FlatList data={types}
+                   keyExtractor={item => item.id.toString()}
+                   renderItem={typeRenderItem} />
 }

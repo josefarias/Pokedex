@@ -28,8 +28,7 @@ function TypeCard({pokemonTypeId}: ITypeCard) {
   }
 
   function persistPokemonType(data: AxiosResponse<IServerPokemonType>) {
-    const pokemonType = new PokemonType(data.data)
-    pokemonTypeRef.current = pokemonType
+    pokemonTypeRef.current = new PokemonType(data.data)
   }
 
   function relations(): Array<Element> {
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: Colors.white,
+    color: Colors.white
   }
 })
 

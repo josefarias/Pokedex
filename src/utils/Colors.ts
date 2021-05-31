@@ -21,7 +21,7 @@ export const Colors: IColor = {
   grass: '#46B55F',
   ground: '#E49D5B',
   ice: '#87C9FF',
-  normal: '#E8B2CB',
+  normal: '#C7AAB3',
   poison: '#A665D9',
   psychic: '#E888B6',
   rock: '#95673C',
