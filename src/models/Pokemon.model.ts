@@ -3,6 +3,7 @@ import { getIdFromUrl } from 'utils/PokeApiHelpers'
 import { IServerPokemonType, PokemonType } from './PokemonType.model'
 import { IServerPokemonStat, PokemonStat } from './PokemonStat.model'
 import { Colors } from 'utils/Colors'
+import { enforceDataIntegrity } from 'utils/DataIntegrityHelpers'
 
 export interface IPokemon {
   id: number
@@ -25,12 +26,14 @@ export class Pokemon {
     this.url   = attrs.url
     this.types = this.constructTypes(attrs.types)
     this.stats = this.constructStats(attrs.stats)
+
+    enforceDataIntegrity(this, defaultValues)
   }
 
   get color(): string {
     if (!this.types.length) return Colors.charcoal
 
-    return Colors[this.types[0].name]
+    return Colors[this.types[0].name.toLowerCase()]
   }
 
   private constructStats(serverStats: Array<IServerPokemonStat> = []): Array<PokemonStat> {
@@ -42,10 +45,12 @@ export class Pokemon {
   }
 }
 
-export const EmptyPokemon = new Pokemon({
+const defaultValues: IPokemon = {
   id: 0,
   name: '',
   url: '',
   types: [],
   stats: []
-})
+}
+
+export const EmptyPokemon = new Pokemon(defaultValues)
