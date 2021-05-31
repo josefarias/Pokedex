@@ -34,10 +34,12 @@ function TypeCard({pokemonTypeId}: ITypeCard) {
   function relations(): Array<Element> {
     const mappings: { [name: string]: string } = DAMAGE_RELATION_TITLE_MAPPINGS
 
-    return Object.keys(mappings).map((key: string) => {
+    return Object.keys(mappings).map((key: string, index: number) => {
       const relations = damageRelations() as unknown as { [name: string]: Array<PokemonType> }
 
-      return <MemoizedDamageRelationList relationName={mappings[key]} pokemonTypes={relations[key]} />
+      return <MemoizedDamageRelationList key={index.toString()}
+                                         relationName={mappings[key]}
+                                         pokemonTypes={relations[key]} />
     })
   }
 
