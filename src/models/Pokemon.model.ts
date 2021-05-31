@@ -5,7 +5,7 @@ import { IServerPokemonStat, PokemonStat } from './PokemonStat.model'
 import { Colors } from 'utils/Colors'
 import { enforceDataIntegrity } from 'utils/DataIntegrityHelpers'
 
-export interface IPokemon {
+export interface IServerPokemon {
   id: number
   name: string
   url: string
@@ -20,7 +20,7 @@ export class Pokemon {
   types: Array<PokemonType>
   stats: Array<PokemonStat>
 
-  constructor(attrs: IPokemon) {
+  constructor(attrs: IServerPokemon) {
     this.id    = attrs.id || getIdFromUrl(attrs.url)
     this.name  = titleize(attrs.name)
     this.url   = attrs.url
@@ -33,7 +33,7 @@ export class Pokemon {
   get color(): string {
     if (!this.types.length) return Colors.charcoal
 
-    return Colors[this.types[0].name.toLowerCase()]
+    return this.types[0].color
   }
 
   private constructStats(serverStats: Array<IServerPokemonStat> = []): Array<PokemonStat> {
@@ -45,7 +45,7 @@ export class Pokemon {
   }
 }
 
-const defaultValues: IPokemon = {
+const defaultValues: IServerPokemon = {
   id: 0,
   name: '',
   url: '',
@@ -53,4 +53,4 @@ const defaultValues: IPokemon = {
   stats: []
 }
 
-export const EmptyPokemon = new Pokemon(defaultValues)
+export const EMPTY_POKEMON = new Pokemon(defaultValues)

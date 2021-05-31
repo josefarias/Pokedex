@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { MemoizedPokemonListItem } from 'components/pokemonIndexAction/pokemonListItem/PokemonListItem'
 import { Spinner } from '@components/shared/spinner/Spinner'
 import { ServerCommunicationError } from '@components/shared/serverCommunicationError/ServerCommunicationError'
-import { Pokemon, IPokemon } from 'models/Pokemon.model'
+import { Pokemon, IServerPokemon } from 'models/Pokemon.model'
 import { StyleSheet, Text, View } from 'react-native'
 import { useInfiniteQuery, useQueryClient } from 'react-query'
 import { Colors } from 'utils/Colors'
@@ -44,7 +44,7 @@ export const PokemonIndex: React.FC = () => {
 
     const results = data.pages.map(page => page.data.results).flat()
 
-    return results.map((serverPokemon: IPokemon) => new Pokemon(serverPokemon))
+    return results.map((serverPokemon: IServerPokemon) => new Pokemon(serverPokemon))
   }
 
   function fetchPokemonIndex({ pageParam = 0 }) {

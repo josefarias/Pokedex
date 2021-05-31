@@ -16,7 +16,5 @@ export const StatsInfo: React.FC<IStatsInfo> = ({stats, color}) => {
                               color={color} />
   }
 
-  return (
-    <FlatList data={stats} renderItem={statRenderItem} />
-  )
+  return <FlatList data={stats} renderItem={statRenderItem} />
 }

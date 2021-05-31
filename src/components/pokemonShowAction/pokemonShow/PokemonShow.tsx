@@ -5,7 +5,7 @@ import { ServerCommunicationError } from 'components/shared/serverCommunicationE
 import { Spinner } from 'components/shared/spinner/Spinner'
 import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
 import { PokemonProfile } from 'facades/PokemonProfile.facade'
-import { EmptyPokemon, IPokemon, Pokemon } from 'models/Pokemon.model'
+import { EMPTY_POKEMON, IServerPokemon, Pokemon } from 'models/Pokemon.model'
 import React, { useLayoutEffect, useRef } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useQuery } from 'react-query'
@@ -17,8 +17,8 @@ import { PokemonHeader } from '../pokemonHeader/PokemonHeader'
 export const PokemonShow: React.FC = () => {
   const route          = useRoute<RouteProp<RootStackParamList, 'Pokemon'>>()
   const navigation     = useNavigation()
-  const pokemonProfile = useRef<PokemonProfile>(new PokemonProfile(EmptyPokemon))
-  const infoDrawer     = useRef<PokemonInfoDrawer>(new PokemonInfoDrawer(EmptyPokemon))
+  const pokemonProfile = useRef<PokemonProfile>(new PokemonProfile(EMPTY_POKEMON))
+  const infoDrawer     = useRef<PokemonInfoDrawer>(new PokemonInfoDrawer(EMPTY_POKEMON))
   const profile        = () => pokemonProfile.current
   const drawer         = () => infoDrawer.current
   const { id }         = route.params
@@ -40,7 +40,7 @@ export const PokemonShow: React.FC = () => {
     return axios.get(`${API_ENDPOINTS.contentApi}/pokemon/${id}`)
   }
 
-  function persistPokemon(data: AxiosResponse<IPokemon>) {
+  function persistPokemon(data: AxiosResponse<IServerPokemon>) {
     const pokemon = new Pokemon(data.data)
     pokemonProfile.current = new PokemonProfile(pokemon)
     infoDrawer.current = new PokemonInfoDrawer(pokemon)

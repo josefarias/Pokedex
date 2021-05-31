@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native'
 import { Colors } from 'utils/Colors'
 import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
 import { StatsInfo } from './components/statsInfo/StatsInfo'
+import { TypesInfo } from './components/typesInfo/TypesInfo'
 
 interface IInfoDrawer {
   drawer: PokemonInfoDrawer
@@ -18,6 +19,7 @@ export const InfoDrawer: React.FC<IInfoDrawer> = ({drawer}) => {
       case 'Stats':
         return <StatsInfo stats={drawer.stats} color={drawer.color} />
       case 'Types':
+        return <TypesInfo types={drawer.types} />
       case 'Moves':
       default:
         return <StatsInfo stats={drawer.stats} color={drawer.color} />
