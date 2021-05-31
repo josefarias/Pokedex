@@ -2,6 +2,7 @@ import { API_ENDPOINTS } from 'api/endpoints'
 import axios, { AxiosResponse } from 'axios'
 import { ServerCommunicationError } from 'components/shared/serverCommunicationError/ServerCommunicationError'
 import { Spinner } from 'components/shared/spinner/Spinner'
+import { DAMAGE_RELATION_TITLE_MAPPINGS } from 'models/DamageRelations.model'
 import { EMPTY_POKEMON_TYPE, PokemonType, IServerPokemonType } from 'models/PokemonType.model'
 import React, { memo, useRef } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
@@ -31,25 +32,23 @@ function TypeCard({pokemonTypeId}: ITypeCard) {
     pokemonTypeRef.current = pokemonType
   }
 
+  function relations(): Array<Element> {
+    const mappings: { [name: string]: string } = DAMAGE_RELATION_TITLE_MAPPINGS
+
+    return Object.keys(mappings).map((key: string) => {
+      const relations = damageRelations() as unknown as { [name: string]: Array<PokemonType> }
+
+      return <MemoizedDamageRelationList relationName={mappings[key]} pokemonTypes={relations[key]} />
+    })
+  }
+
   if (isLoading) return <Spinner />
   if (isError) return <ServerCommunicationError />
 
   return(
     <View style={{...styles.container, backgroundColor: pokemonType().color}}>
       <Text style={styles.title}>{pokemonType().name}</Text>
-
-      <MemoizedDamageRelationList relationName='No Damage To'
-                                  pokemonTypes={damageRelations().noDamageTo} />
-      <MemoizedDamageRelationList relationName='Half Damage To'
-                                  pokemonTypes={damageRelations().halfDamageTo} />
-      <MemoizedDamageRelationList relationName='Double Damage To'
-                                  pokemonTypes={damageRelations().doubleDamageTo} />
-      <MemoizedDamageRelationList relationName='No Damage From'
-                                  pokemonTypes={damageRelations().noDamagefrom} />
-      <MemoizedDamageRelationList relationName='Half Damage From'
-                                  pokemonTypes={damageRelations().halfDamagefrom} />
-      <MemoizedDamageRelationList relationName='Double Damage From'
-                                  pokemonTypes={damageRelations().doubleDamagefrom} />
+      {relations()}
     </View>
   )
 }

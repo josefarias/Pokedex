@@ -42,3 +42,12 @@ const defaultValues: IServerDamageRelations = {
   half_damage_from: [],
   double_damage_from: []
 }
+
+export const DAMAGE_RELATION_TITLE_MAPPINGS = {
+  noDamageTo: 'No Damage To',
+  halfDamageTo: 'Half Damage To',
+  doubleDamageTo: 'Double Damage To',
+  noDamagefrom: 'No Damage From',
+  halfDamagefrom: 'Half Damage From',
+  doubleDamagefrom: 'Double Damage From'
+}
