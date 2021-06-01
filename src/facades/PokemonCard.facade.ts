@@ -1,12 +1,41 @@
 import { API_ENDPOINTS } from 'api/endpoints'
 import { Pokemon } from 'models/Pokemon.model'
 import { deterministicInterfaceColor } from 'utils/Colors'
+import { getTeam, overwriteTeam } from 'utils/TeamHelpers'
 
 export class PokemonCard {
   pokemon: Pokemon
 
   constructor(pokemon: Pokemon) {
     this.pokemon = pokemon
+  }
+
+  async addToTeam() {
+    const team = await getTeam()
+    const actOnResult = (isInTeam: boolean) => {
+      if (isInTeam) return
+
+      team.push(this)
+      overwriteTeam(team)
+    }
+
+    this.isInTeam(actOnResult)
+  }
+
+  async isInTeam(callback: (arg0: boolean) => void) {
+    const team = await getTeam()
+    const isPresent = !!team.find((card) => card.pokemon.id == this.id)
+
+    callback(isPresent)
+  }
+
+  async removeFromTeam() {
+    const team = await getTeam()
+    const index = team.findIndex((card) => card.pokemon.id == this.id)
+
+    if (index > -1) team.splice(index, 1);
+
+    overwriteTeam(team)
   }
 
   get id(): number {

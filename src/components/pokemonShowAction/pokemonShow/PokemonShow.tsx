@@ -3,6 +3,8 @@ import { API_ENDPOINTS } from 'api/endpoints'
 import axios, { AxiosResponse } from 'axios'
 import { ServerCommunicationError } from 'components/shared/serverCommunicationError/ServerCommunicationError'
 import { Spinner } from 'components/shared/spinner/Spinner'
+import { ToggleTeamMembershipButton } from 'components/shared/toggleTeamMembershipButton/ToggleTeamMembershipButton'
+import { PokemonCard } from 'facades/PokemonCard.facade'
 import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
 import { PokemonProfile } from 'facades/PokemonProfile.facade'
 import { EMPTY_POKEMON, IServerPokemon, Pokemon } from 'models/Pokemon.model'
@@ -24,7 +26,10 @@ export const PokemonShow: React.FC = () => {
   const { id }         = route.params
   const { isLoading, isError } =
     useQuery(`pokemonShow${id}`, fetchPokemon, {
-      onSuccess: (data) => persistPokemon(data)
+      onSuccess: (data) => {
+        persistPokemon(data)
+        updateTeamMembershipButton()
+      }
     })
 
   useLayoutEffect(() => {
@@ -44,6 +49,15 @@ export const PokemonShow: React.FC = () => {
     const pokemon = new Pokemon(data.data)
     pokemonProfile.current = new PokemonProfile(pokemon)
     infoDrawer.current = new PokemonInfoDrawer(pokemon)
+  }
+
+  function updateTeamMembershipButton() {
+    navigation.setOptions({
+      headerRight: () => {
+        const card = new PokemonCard(profile().pokemon)
+        return <ToggleTeamMembershipButton pokemonCard={card} />
+      }
+    })
   }
 
   if (isLoading) return <Spinner />
