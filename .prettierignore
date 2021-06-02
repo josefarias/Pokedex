@@ -1,0 +1,4 @@
+# Prettier causes more trouble than it's worth when aligning horizontally,
+#   which Clean Code suggests you don't do. But, lately, I like doing it for
+#   TypeScript. This is a greenfield project so I went with it. 🤷‍♂️
+*
