@@ -18,7 +18,7 @@ export const ProgressBar: React.FC<IProgressBar> = ({progress, color}) => {
 
 const styles = StyleSheet.create({
   bar: {
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.darkGray,
     height: 8,
     borderRadius: 80
   },

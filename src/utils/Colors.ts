@@ -9,6 +9,7 @@ export const Colors: IColor = {
   black: '#000000',
   success: '#54c56b',
   gray: '#838D98',
+  darkGray: '#363636',
   charcoal: 'rgb(36,36,36)',
   bug: '#62A571',
   dark: '#050706',
