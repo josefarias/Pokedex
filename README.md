@@ -2,9 +2,11 @@
 
 This is a greenfield project I built with React Native. Here's a preview:
 
-<img src="./docs/images/indexDemo.png" alt="Pokemon index screen" width="117" height="253" />
-<img src="./docs/images/showDemo.png" alt="Pokemon show screen for Arbok" width="117" height="253" />
-<img src="./docs/images/appDemo.gif" alt="App functionality demo GIF" width="144" height="256" />
+<p float="left">
+  <img src="./docs/images/indexDemo.png" alt="Pokemon index screen" width="175" height="379" />
+  <img src="./docs/images/showDemo.png" alt="Pokemon show screen for Arbok" width="175" height="379" />
+  <img src="./docs/images/appDemo.gif" alt="App functionality demo GIF" width="216" height="384" />
+</p>
 
 ## Running The App
 
