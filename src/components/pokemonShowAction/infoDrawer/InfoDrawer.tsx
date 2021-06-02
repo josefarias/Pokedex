@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.charcoal,
     borderTopLeftRadius: 48,
     borderTopEndRadius: 48,
-    paddingTop: 40
+    paddingTop: 40,
+    paddingBottom: 24
   },
   segmentedControlTile: {
     borderRadius: 80,
