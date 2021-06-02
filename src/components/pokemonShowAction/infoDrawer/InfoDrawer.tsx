@@ -16,7 +16,7 @@ export const InfoDrawer: React.FC<IInfoDrawer> = ({drawer}) => {
   const [tabIndex, setTabIndex] = useState(0)
 
   function componentFor(tabTitle: string) {
-    switch(tabTitle) {
+    switch (tabTitle) {
       case 'Stats':
         return <StatsInfo stats={drawer.stats} color={drawer.color} />
       case 'Types':
@@ -33,7 +33,7 @@ export const InfoDrawer: React.FC<IInfoDrawer> = ({drawer}) => {
       <SegmentedControl tabs={tabTitles}
                         onChange={(index) => setTabIndex(index)}
                         currentIndex={tabIndex}
-                        theme='DARK'
+                        theme="DARK"
                         activeSegmentBackgroundColor={drawer.activeSegmentBackgroundColor}
                         segmentedControlBackgroundColor={Colors.charcoal}
                         tileStyle={styles.segmentedControlTile}

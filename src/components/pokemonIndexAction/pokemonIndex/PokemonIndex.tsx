@@ -21,7 +21,7 @@ export const PokemonIndex: React.FC = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchOnReconnect: false,
-      onSuccess: () => currentPage.current += 1,
+      onSuccess: () => { currentPage.current += 1 },
       getNextPageParam: (lastPage, _allPages) => {
         if (!lastPage.data.next) return undefined
 

@@ -10,7 +10,7 @@ interface IStatGauge {
 }
 
 function StatGauge({stat, color}: IStatGauge) {
-  return(
+  return (
     <View style={styles.container}>
       <View style={styles.textWrapper}>
         <Text style={styles.statName}>{stat.name}</Text>

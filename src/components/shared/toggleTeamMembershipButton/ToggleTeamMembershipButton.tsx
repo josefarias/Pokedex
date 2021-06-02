@@ -31,8 +31,8 @@ export const ToggleTeamMembershipButton: React.FC<IToggleTeamMembershipButton> =
   }
 
   function toggleTeamPresence() {
-    const actOnResult = (isInTeam: boolean) => {
-      if (isInTeam) {
+    const actOnResult = (inTeam: boolean) => {
+      if (inTeam) {
         pokemonCard.removeFromTeam().then(() => setIsInTeam(false))
       } else {
         pokemonCard.addToTeam().then(() => setIsInTeam(true))
@@ -43,7 +43,8 @@ export const ToggleTeamMembershipButton: React.FC<IToggleTeamMembershipButton> =
   }
 
   return (
-    <Pressable style={{...styles.container, ...buttonStyles()}} onPress={toggleTeamPresence}>
+    <Pressable style={{...styles.container, ...buttonStyles()}}
+               onPress={toggleTeamPresence}>
       <Text style={styles.title}>{buttonTitle()}</Text>
     </Pressable>
   )

@@ -35,18 +35,18 @@ function TypeCard({pokemonTypeId}: ITypeCard) {
     const mappings: { [name: string]: string } = DAMAGE_RELATION_TITLE_MAPPINGS
 
     return Object.keys(mappings).map((key: string, index: number) => {
-      const relations = damageRelations() as unknown as { [name: string]: Array<PokemonType> }
+      const rels = damageRelations() as unknown as { [name: string]: Array<PokemonType> }
 
       return <MemoizedDamageRelationList key={index.toString()}
                                          relationName={mappings[key]}
-                                         pokemonTypes={relations[key]} />
+                                         pokemonTypes={rels[key]} />
     })
   }
 
   if (isLoading) return <Spinner />
   if (isError) return <ServerCommunicationError />
 
-  return(
+  return (
     <View style={{...styles.container, backgroundColor: pokemonType().color}}>
       <Text style={styles.title}>{pokemonType().name}</Text>
       {relations()}

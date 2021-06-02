@@ -37,5 +37,5 @@ export function deterministicInterfaceColor(index: number): string {
 }
 
 function hashedIndexForInterfaceColor(index: number): number {
-  return require("hash-int")(index)
+  return require('hash-int')(index)
 }

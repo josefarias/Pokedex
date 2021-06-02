@@ -1,7 +1,7 @@
-import { Pokemon } from "models/Pokemon.model";
-import { PokemonMove } from "models/PokemonMove.model";
-import { PokemonStat } from "models/PokemonStat.model";
-import { PokemonType } from "models/PokemonType.model";
+import { Pokemon } from 'models/Pokemon.model'
+import { PokemonMove } from 'models/PokemonMove.model'
+import { PokemonStat } from 'models/PokemonStat.model'
+import { PokemonType } from 'models/PokemonType.model'
 
 export class PokemonInfoDrawer {
   pokemon: Pokemon

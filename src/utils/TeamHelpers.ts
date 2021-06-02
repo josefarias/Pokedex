@@ -11,7 +11,7 @@ export async function getTeam(): Promise<Array<PokemonCard>> {
 
     // JSON.parse(value) as Array<PokemonCard> won't work. TS type casting is not that convenient.
     return JSON.parse(value).map((item: PokemonCard) => new PokemonCard(item.pokemon))
-  } catch(e) {
+  } catch (e) {
     console.log(e)
 
     return []

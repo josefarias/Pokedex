@@ -4,7 +4,7 @@ import { HomeMenuOptions } from '@components/home/homeMenuOptions/HomeOptions'
 import { Colors } from 'utils/Colors'
 
 export const Home: React.FC = () => {
-  return(
+  return (
     <SafeAreaView>
       <Text style={styles.heading}>What would you like to see?</Text>
       <HomeMenuOptions />

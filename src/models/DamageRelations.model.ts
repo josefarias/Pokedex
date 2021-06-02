@@ -1,5 +1,5 @@
-import { enforceDataIntegrity } from "utils/DataIntegrityHelpers";
-import { IServerPokemonType, PokemonType } from "./PokemonType.model";
+import { enforceDataIntegrity } from 'utils/DataIntegrityHelpers'
+import { IServerPokemonType, PokemonType } from './PokemonType.model'
 
 export interface IServerDamageRelations {
   no_damage_to: Array<IServerPokemonType>

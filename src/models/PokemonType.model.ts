@@ -1,11 +1,11 @@
-import { Colors } from "utils/Colors"
-import { enforceDataIntegrity } from "utils/DataIntegrityHelpers"
-import { extractFromNestedResource, getIdFromUrl } from "utils/PokeApiHelpers"
-import { titleize } from "utils/StringHelpers"
+import { Colors } from 'utils/Colors'
+import { enforceDataIntegrity } from 'utils/DataIntegrityHelpers'
+import { extractFromNestedResource, getIdFromUrl } from 'utils/PokeApiHelpers'
+import { titleize } from 'utils/StringHelpers'
 import { DamageRelations,
          IServerDamageRelations,
          defaultValues as DamageRelationsDefaults,
-         EMPTY_DAMAGE_RELATIONS } from "./DamageRelations.model"
+         EMPTY_DAMAGE_RELATIONS } from './DamageRelations.model'
 
 export interface IServerPokemonType {
   id: number

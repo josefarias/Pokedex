@@ -1,5 +1,5 @@
-import { API_ENDPOINTS } from "api/endpoints";
-import { Pokemon } from "models/Pokemon.model";
+import { API_ENDPOINTS } from 'api/endpoints'
+import { Pokemon } from 'models/Pokemon.model'
 
 export class PokemonProfile {
   pokemon: Pokemon

@@ -39,7 +39,7 @@ export const PokemonShow: React.FC = () => {
         shadowColor: 'transparent'
       }
     })
-  }, [navigation, pokemonProfile.current])
+  }, [navigation])
 
   function fetchPokemon() {
     return axios.get(`${API_ENDPOINTS.contentApi}/pokemon/${id}`)

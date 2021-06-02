@@ -14,14 +14,13 @@ export const MenuCard: React.FC<IMenuCard> = (props) => {
   const { backgroundColor, destination, title, icon } = props
 
   const navigation = useNavigation()
-  const cardStyle  = { ...styles.card, backgroundColor: backgroundColor }
 
   function navigate(): void {
     navigation.navigate(destination)
   }
 
   return (
-    <Pressable style={cardStyle}
+    <Pressable style={{ ...styles.card, backgroundColor: backgroundColor }}
                onPress={navigate}>
         <Text style={styles.title}>{title}</Text>
         <Image source={icon} style={styles.icon} />

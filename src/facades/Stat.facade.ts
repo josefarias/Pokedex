@@ -1,4 +1,4 @@
-import { PokemonStat } from "models/PokemonStat.model"
+import { PokemonStat } from 'models/PokemonStat.model'
 
 export class Stat {
   stat: PokemonStat

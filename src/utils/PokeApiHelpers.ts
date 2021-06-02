@@ -1,6 +1,6 @@
-export function getIdFromUrl(url: string = ""): number {
+export function getIdFromUrl(url: string = ''): number {
   const tokenizedUrl = url.split('/')
-  return parseInt(tokenizedUrl[tokenizedUrl.length - 2])
+  return parseInt(tokenizedUrl[tokenizedUrl.length - 2], 10)
 }
 
 // NOTE: This is needed because PokeAPI tends to return resources in the form of:

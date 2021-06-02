@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { camelize } from "./StringHelpers"
+import { camelize } from './StringHelpers'
 
 // NOTE: Another way to do this would be to give each property default values.
 //  Using this pattern assumes we're creating a `defaultValues: ServerInterface`

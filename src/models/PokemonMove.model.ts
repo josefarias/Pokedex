@@ -1,10 +1,10 @@
-import { enforceDataIntegrity } from "utils/DataIntegrityHelpers"
-import { extractFromNestedResource, getIdFromUrl } from "utils/PokeApiHelpers"
-import { titleize } from "utils/StringHelpers"
+import { enforceDataIntegrity } from 'utils/DataIntegrityHelpers'
+import { extractFromNestedResource, getIdFromUrl } from 'utils/PokeApiHelpers'
+import { titleize } from 'utils/StringHelpers'
 import { IServerPokemonType,
          PokemonType,
          defaultValues as PokemonTypeDefaults,
-         EMPTY_POKEMON_TYPE } from "./PokemonType.model"
+         EMPTY_POKEMON_TYPE } from './PokemonType.model'
 
 export interface IServerPokemonMove {
   id: number

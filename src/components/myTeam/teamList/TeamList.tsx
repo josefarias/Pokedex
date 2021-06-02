@@ -9,8 +9,8 @@ import { getTeam } from 'utils/TeamHelpers'
 
 export const TeamList: React.FC = () => {
   const [team, setTeam] = useState<Array<PokemonCard>>([])
-  const pokeballIcon = require('./assets/pokeball.png')
-  const navigation = useNavigation()
+  const pokeballIcon    = require('./assets/pokeball.png')
+  const navigation      = useNavigation()
 
   useEffect(() => {
     let subscribed = true

@@ -31,7 +31,7 @@ function MoveCard({pokemonMoveId}: IMoveCard) {
   if (isLoading) return <Spinner />
   if (isError) return <ServerCommunicationError />
 
-  return(
+  return (
     <View style={{...styles.container, backgroundColor: pokemonMove().type.color}}>
       <Text style={styles.title}>{pokemonMove().name}</Text>
       <Text style={styles.subtitle}>Power: {pokemonMove().power}</Text>

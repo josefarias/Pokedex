@@ -24,14 +24,14 @@ export class PokemonCard {
 
   async isInTeam(callback: (arg0: boolean) => void) {
     const team = await getTeam()
-    const isPresent = !!team.find((card) => card.pokemon.id == this.id)
+    const isPresent = !!team.find((card) => card.pokemon.id === this.id)
 
     callback(isPresent)
   }
 
   async removeFromTeam() {
     const team = await getTeam()
-    const index = team.findIndex((card) => card.pokemon.id == this.id)
+    const index = team.findIndex((card) => card.pokemon.id === this.id)
 
     if (index > -1) team.splice(index, 1);
 
