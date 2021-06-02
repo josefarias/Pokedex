@@ -7,7 +7,6 @@ This is a greenfield project I built with React Native. Here's a preview:
   <img src="./docs/images/statsDemo.png" alt="Pokemon stats screen for Arbok" width="175" height="379" />
   <img src="./docs/images/typesDemo.png" alt="Pokemon types screen for Arbok" width="175" height="379" />
   <img src="./docs/images/movesDemo.png" alt="Pokemon moves screen for Arbok" width="175" height="379" />
-  <img src="./docs/images/appDemo.gif" alt="App functionality demo GIF" width="216" height="384" />
 </p>
 
 ## Running The App
