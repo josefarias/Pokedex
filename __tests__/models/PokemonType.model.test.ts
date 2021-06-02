@@ -1,5 +1,5 @@
 import { Colors } from 'utils/Colors'
-import { PokemonTypeFactory } from '../factories/PokemonTypeFactory'
+import { PokemonTypeFactory } from '../../__factories__/PokemonTypeFactory'
 
 const pokemonType = PokemonTypeFactory.create()
 

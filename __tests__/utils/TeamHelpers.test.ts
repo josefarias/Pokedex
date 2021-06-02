@@ -1,14 +1,12 @@
-import { PokemonCard } from 'facades/PokemonCard.facade'
+import { PokemonCard } from '../../src/facades/PokemonCard.facade'
 import { overwriteTeam, getTeam } from 'utils/TeamHelpers'
-import { PokemonFactory } from '../factories/PokemonFactory'
+import { PokemonFactory } from '../../__factories__/PokemonFactory'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const pokemon = PokemonFactory.create()
 const card = new PokemonCard(pokemon)
 
-afterEach(() => {
-  return AsyncStorage.clear()
-})
+afterEach(() => AsyncStorage.clear())
 
 describe('.getTeam', () => {
   it('returns an empty array when null', async () => {
@@ -27,13 +25,19 @@ describe('.getTeam', () => {
 
 describe('.overwriteTeam', () => {
   it('correctly overwrites entry', async() => {
-    let team = await getTeam()
+    let team
+
+    team = await getTeam()
     expect(team).toStrictEqual([])
 
-    await overwriteTeam([card])
-    team = await getTeam()
+    await overwriteTeam([card, card])
 
+    team = await getTeam()
+    expect(team.length).toBe(2)
+
+    await overwriteTeam([card])
+
+    team = await getTeam()
     expect(team.length).toBe(1)
-    expect(team).toContainEqual(card)
   })
 })

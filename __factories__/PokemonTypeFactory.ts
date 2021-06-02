@@ -1,4 +1,4 @@
-import { PokemonType } from '../../src/models/PokemonType.model'
+import { PokemonType } from 'models/PokemonType.model'
 
 export class PokemonTypeFactory {
   static create(): PokemonType {
