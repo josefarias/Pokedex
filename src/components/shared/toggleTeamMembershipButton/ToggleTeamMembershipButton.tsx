@@ -24,7 +24,7 @@ export const ToggleTeamMembershipButton: React.FC<IToggleTeamMembershipButton> =
 
   function buttonTitle(): string {
     if (isInTeam) {
-      return 'Remove'
+      return 'On Your Team'
     } else {
       return 'Add To Team'
     }
