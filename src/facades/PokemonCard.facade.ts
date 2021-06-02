@@ -19,14 +19,14 @@ export class PokemonCard {
       overwriteTeam(team)
     }
 
-    this.isInTeam(actOnResult)
+    return this.isInTeam(actOnResult)
   }
 
   async isInTeam(callback: (arg0: boolean) => void) {
     const team = await getTeam()
     const isPresent = !!team.find((card) => card.pokemon.id === this.id)
 
-    callback(isPresent)
+    return callback(isPresent)
   }
 
   async removeFromTeam() {
@@ -35,7 +35,7 @@ export class PokemonCard {
 
     if (index > -1) team.splice(index, 1);
 
-    overwriteTeam(team)
+    return overwriteTeam(team)
   }
 
   get id(): number {
