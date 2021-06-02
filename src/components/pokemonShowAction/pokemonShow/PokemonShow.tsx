@@ -8,7 +8,7 @@ import { PokemonCard } from 'facades/PokemonCard.facade'
 import { PokemonInfoDrawer } from 'facades/PokemonInfoDrawer.facade'
 import { PokemonProfile } from 'facades/PokemonProfile.facade'
 import { EMPTY_POKEMON, IServerPokemon, Pokemon } from 'models/Pokemon.model'
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useQuery } from 'react-query'
 import { RootStackParamList } from 'routes/RootStackParamList.type'
@@ -32,15 +32,6 @@ export const PokemonShow: React.FC = () => {
       }
     })
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerStyle: {
-        backgroundColor: pokemonProfile.current.background,
-        shadowColor: 'transparent'
-      }
-    })
-  }, [navigation])
-
   function fetchPokemon() {
     return axios.get(`${API_ENDPOINTS.contentApi}/pokemon/${id}`)
   }
@@ -49,6 +40,13 @@ export const PokemonShow: React.FC = () => {
     const pokemon = new Pokemon(data.data)
     pokemonProfile.current = new PokemonProfile(pokemon)
     infoDrawer.current = new PokemonInfoDrawer(pokemon)
+
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: pokemonProfile.current.background,
+        shadowColor: 'transparent'
+      }
+    })
   }
 
   function updateTeamMembershipButton() {
