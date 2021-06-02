@@ -3,7 +3,7 @@ import { MemoizedPokemonListItem } from 'components/pokemonIndexAction/pokemonLi
 import { Spinner } from '@components/shared/spinner/Spinner'
 import { ServerCommunicationError } from '@components/shared/serverCommunicationError/ServerCommunicationError'
 import { Pokemon, IServerPokemon } from 'models/Pokemon.model'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import { useInfiniteQuery, useQueryClient } from 'react-query'
 import { Colors } from 'utils/Colors'
 import { FlatList } from 'react-native-gesture-handler'
@@ -61,17 +61,15 @@ export const PokemonIndex: React.FC = () => {
   if (isError) return <ServerCommunicationError />
 
   return (
-    <View>
-      <FlatList data={buildPokemonData()}
-                renderItem={pokemonRenderItem}
-                keyExtractor={item => item.id.toString()}
-                onEndReached={getMorePokemon}
-                ListHeaderComponent={
-                  <Text style={styles.heading}>
-                    Select a Pokémon to see it up close
-                  </Text>
-                } />
-    </View>
+    <FlatList data={buildPokemonData()}
+              renderItem={pokemonRenderItem}
+              keyExtractor={item => item.id.toString()}
+              onEndReached={getMorePokemon}
+              ListHeaderComponent={
+                <Text style={styles.heading}>
+                  Select a Pokémon to see it up close
+                </Text>
+              } />
   )
 }
 

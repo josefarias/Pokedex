@@ -1,5 +1,5 @@
 import { PokemonCard } from 'facades/PokemonCard.facade'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Pressable, StyleSheet, Text } from 'react-native'
 import { Colors } from 'utils/Colors'
 
@@ -9,6 +9,10 @@ interface IToggleTeamMembershipButton {
 
 export const ToggleTeamMembershipButton: React.FC<IToggleTeamMembershipButton> = ({pokemonCard}) => {
   const [isInTeam, setIsInTeam] = useState<boolean>(false)
+
+  useEffect(() => {
+    pokemonCard.isInTeam(setIsInTeam)
+  }, [pokemonCard])
 
   function buttonStyles(): Object {
     if (isInTeam) {
@@ -37,8 +41,6 @@ export const ToggleTeamMembershipButton: React.FC<IToggleTeamMembershipButton> =
 
     pokemonCard.isInTeam(actOnResult)
   }
-
-  pokemonCard.isInTeam(setIsInTeam)
 
   return (
     <Pressable style={{...styles.container, ...buttonStyles()}} onPress={toggleTeamPresence}>

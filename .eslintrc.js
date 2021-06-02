@@ -4,6 +4,6 @@ module.exports = {
   rules: {
     'comma-dangle': ['off'],
     semi: ['off'],
-    curly: ['multi']
+    curly: ['off']
   }
 }
