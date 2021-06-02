@@ -8,10 +8,10 @@ import { DamageRelations,
          EMPTY_DAMAGE_RELATIONS } from './DamageRelations.model'
 
 export interface IServerPokemonType {
-  id: number
+  id?: number
   name: string
   url: string
-  damage_relations: IServerDamageRelations
+  damage_relations?: IServerDamageRelations
   type?: IServerPokemonType
 }
 

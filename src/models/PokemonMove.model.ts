@@ -7,20 +7,20 @@ import { IServerPokemonType,
          EMPTY_POKEMON_TYPE } from './PokemonType.model'
 
 export interface IServerPokemonMove {
-  id: number
+  id?: number
   name: string
-  accuracy: number
-  power: number
+  accuracy?: number
+  power?: number
   url: string
-  type: IServerPokemonType
+  type?: IServerPokemonType
   move?: IServerPokemonMove
 }
 
 export class PokemonMove {
   id: number
   name: string
-  accuracy: number
-  power: number
+  accuracy?: number
+  power?: number
   url: string
   type: PokemonType
 

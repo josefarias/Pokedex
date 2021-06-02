@@ -3,7 +3,7 @@ import { extractFromNestedResource, getIdFromUrl } from 'utils/PokeApiHelpers'
 import { titleize } from 'utils/StringHelpers'
 
 export interface IServerPokemonStat {
-  id: number
+  id?: number
   base_stat: number
   name: string
   url: string
