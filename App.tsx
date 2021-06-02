@@ -7,9 +7,12 @@ import { PokemonShowAction } from '@screens/pokemonShowAction/PokemonShowAction'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { StatusBar } from 'react-native'
+import { LogBox, StatusBar } from 'react-native'
 import { Colors } from 'utils/Colors'
 import { QueryClient, QueryClientProvider } from 'react-query'
+
+// Issue with react-query caching. See https://github.com/tannerlinsley/react-query/issues/1259
+LogBox.ignoreLogs(['Setting a timer'])
 
 const Stack = createStackNavigator()
 const queryClient = new QueryClient()
