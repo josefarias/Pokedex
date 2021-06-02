@@ -1,6 +1,6 @@
 import { Pokemon } from '../../src/models/Pokemon.model'
 
-export class PokemonFactory extends Pokemon {
+export class PokemonFactory {
   static create(): Pokemon {
     return new Pokemon({
       id: 1,
