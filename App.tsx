@@ -34,10 +34,10 @@ const App = () => {
 
         <NavigationContainer theme={AppTheme}>
           <Stack.Navigator>
-            <Stack.Screen name='Home' component={Home} options={{headerShown: false}} />
-            <Stack.Screen name='My Team' component={MyTeam} options={{title: ''}} />
-            <Stack.Screen name='Pokemon List' component={PokemonIndexAction} options={{title: ''}} />
-            <Stack.Screen name='Pokemon' component={PokemonShowAction} options={{title: ''}} />
+            <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+            <Stack.Screen name="My Team" component={MyTeam} options={{title: ''}} />
+            <Stack.Screen name="Pokemon List" component={PokemonIndexAction} options={{title: ''}} />
+            <Stack.Screen name="Pokemon" component={PokemonShowAction} options={{title: ''}} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
