@@ -36,7 +36,7 @@ export const TeamList: React.FC = () => {
   if (team.length < 1) {
     return (
       <BlankSlate title="There are no Pokémon on your team"
-                  description="Add team members by visiting the Pokémon List section"
+                  description="Add team members by visiting the 'All Pokémon' section"
                   icon={pokeballIcon}
                   style={styles.blankSlate} />
     )
@@ -45,7 +45,7 @@ export const TeamList: React.FC = () => {
   return (
     <FlatList data={team}
               renderItem={pokemonRenderItem}
-              keyExtractor={item => item.id.toString()}
+              keyExtractor={(item: PokemonCard) => item.id.toString()}
               ListHeaderComponent={
                 <Text style={styles.heading}>
                   This is your team
